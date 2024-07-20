@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors:{
-        themeBlue:"#3556C1"
+        themeBlue:"#329AA0",
+        dashboardBlue:"#21ADB6"
       }
     },
   },

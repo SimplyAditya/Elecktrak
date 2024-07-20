@@ -20,12 +20,11 @@ const AdminLogin = () => {
           backgroundPosition: "center",
         }}
       >
-        <h1 className="text-white text-5xl lg:text-9xl px-6 lg:px-20 font-bold font-serif">
+        <h1 className="text-white text-5xl lg:text-9xl px-6 lg:px-20 font-bold font-serif outfit-font">
           Electrak
         </h1>
       </div>
-      <div className="h-1/2 lg:h-screen lg:w-2/6 flex flex-col justify-between items-center bg-black">
-        <div></div>
+      <div className="h-1/2 lg:h-screen lg:w-2/6 flex flex-col justify-center items-center bg-black">
         <div className="w-full lg:w-4/5 p-6 lg:px-8">
           <h1 className="font-bold text-white text-3xl lg:text-5xl pb-4">
             Admin Login
@@ -58,12 +57,12 @@ const AdminLogin = () => {
             Submit
           </button>
         </div>
-        <div className="text-white mb-4 lg:mb-12 flex justify-between items-center w-full lg:w-4/5 px-6 lg:px-8">
+        {/* <div className="text-white mb-4 lg:mb-12 flex justify-between items-center w-full lg:w-4/5 px-6 lg:px-8">
           <h1 className="text-xs lg:text-sm">Don't have an account?</h1>
           <button className="bg-themeBlue text-white py-1 px-3 rounded-lg">
             Register
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
