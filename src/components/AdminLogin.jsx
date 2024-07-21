@@ -19,9 +19,10 @@ const AdminLogin = () => {
       return;
     }
     setError(false);
-    if(email!=="abcd" || password!=="abcd"){
+    if(email!=="aabcd" || password!=="abcd"){
       setToggleAlert(true);
       return;
+
     }
     setToggleAlert(false);
     navigate("/home");
