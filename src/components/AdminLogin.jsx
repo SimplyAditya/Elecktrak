@@ -24,7 +24,7 @@ const AdminLogin = () => {
       return;
     }
     setToggleAlert(false);
-    // navigate("/home");
+    navigate("/home");
   };
 
   const togglePasswordVisibility = () => {
