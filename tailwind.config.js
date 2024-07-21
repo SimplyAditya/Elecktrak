@@ -8,7 +8,8 @@ export default {
     extend: {
       colors:{
         themeBlue:"#329AA0",
-        dashboardBlue:"#21ADB6"
+        dashboardBlue:"#21ADB6",
+        backg: "#EBF4F6",
       }
     },
   },

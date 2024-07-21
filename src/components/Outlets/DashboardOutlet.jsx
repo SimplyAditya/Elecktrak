@@ -39,7 +39,8 @@ export const DashBoardOutlet = () => {
 
   return (
     <>
-      <div className="w-full h-full overflow-y-auto rounded-2xl bg-red-700 flex flex-wrap p-4 pt-2">
+      <div className="w-full h-full overflow-y-auto rounded-2xl bg-backg flex flex-col p-4 pt-2">
+        <div className="flex gap-1">
         {!chartsCollapsible && (
             <div
             id="div1"
@@ -186,12 +187,13 @@ export const DashBoardOutlet = () => {
           </div>
         )}
         {cardsCollapsible && (
-            <div id="div2" className="h-full w-1/4 rounded-[20px] bg-white shadow-md drop-shadow-sm overflow-y-auto shadow-slate-300 text-dashboardBlue px-2 py-4 flex flex-col justify-start items-end">
-            <FontAwesomeIcon
-              className="px-2  pt-2 pb-6"
+            <div id="div2" className="h-full w-1/4 rounded-[20px] bg-white shadow-md drop-shadow-sm overflow-y-auto shadow-slate-300 text-dashboardBlue px-2 py-4 flex flex-col justify-start items-center">
+            <div className="flex justify-end w-11/12"><FontAwesomeIcon
+              className="px-2  pt-2 pb-4"
               onClick={() => setCardsCollapsible(false)}
               icon={faXmark}
               />
+              </div>
             <div className="">
               {cards.map((card) => {
                   return (
@@ -224,8 +226,9 @@ export const DashBoardOutlet = () => {
             </div>
           </div>
         )}
-      <div id="div3" className={`rounded-[20px] mt-2 bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-6 py-4 pb-2 flex justify-between items-center ${cardsCollapsible ? "w-3/4":"flex-grow"}`}>
-         Hello
+        </div>
+      <div id="div3" className={`rounded-[20px] mt-2 bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-6 py-4 pb-2 flex justify-center items-center outfit-font text-5xl ${cardsCollapsible ? "w-3/4":"flex-grow"}`}>
+         Dashboard
       </div>
         </div>
     </>
