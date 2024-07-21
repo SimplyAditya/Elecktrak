@@ -6,3 +6,18 @@
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
 }
+
+/* In your CSS file */
+
+@keyframes progressBar {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.progress-bar {
+  animation: progressBar 3s linear forwards;
+}

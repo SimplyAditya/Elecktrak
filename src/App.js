@@ -1,12 +1,12 @@
-import AdminLogin from './components/AdminLogin';
-import { Dashbaord } from './components/DashBoard';
+// import AdminLogin from './components/AdminLogin';
+// import { Dashboard } from './components/DashBoard';
 import './styles/App.css';
-
+import {Outlet} from "react-router-dom";
+import React from 'react';
 function App() {
   return (
     <>
-    <AdminLogin/>
-    <Dashbaord/>
+    <Outlet/>
     </>
   );
 }
