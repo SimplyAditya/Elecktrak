@@ -6,8 +6,11 @@
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
 }
-
-/* In your CSS file */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  transform: rotate(0deg);
+}
 
 @keyframes progressBar {
   from {

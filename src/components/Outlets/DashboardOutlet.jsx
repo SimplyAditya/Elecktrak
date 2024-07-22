@@ -8,6 +8,7 @@ import {
   faLaptop,
   faPlus,
   faXmark,
+  faCaretLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
 export const DashBoardOutlet = () => {
@@ -167,7 +168,7 @@ export const DashBoardOutlet = () => {
   return (
     <>
       <div className="w-full h-full overflow-y-auto rounded-2xl bg-backg flex gap-2 p-4 pt-2">
-        <div className="flex flex-col w-3/4 h-full gap-1">
+        <div className="flex flex-col flex-grow h-full gap-1">
           {!chartsCollapsible && (
             <div
               id="div1"
@@ -221,17 +222,17 @@ export const DashBoardOutlet = () => {
             Dashboard
           </div>
         </div>
-        <div className="w-1/4 h-full">
+        <div className="w-fit h-full">
           {!cardsCollapsible && (
             <div
               id="div2"
               onClick={() => setCardsCollapsible(true)}
-              className="h-fit w-full rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-6 py-4 flex justify-between items-center"
+              className="h-full w-fit rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-2 py-6 flex flex-col justify-between items-center"
             >
-              <h1 className="font-bold text-xl">Cards</h1>
               <div>
-                <FontAwesomeIcon icon={faCaretDown} />
+                <FontAwesomeIcon icon={faCaretLeft} />
               </div>
+              <h1 className="font-bold text-xl vertical-text">Cards</h1>
             </div>
           )}
           {cardsCollapsible && (
