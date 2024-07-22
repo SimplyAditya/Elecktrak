@@ -12,7 +12,7 @@ import {
 
 export const DashBoardOutlet = () => {
   const [chartsCollapsible, setChartsCollapsible] = useState(false);
-  const [cardsCollapsible, setCardsCollapsible] = useState(false);
+  const [cardsCollapsible, setCardsCollapsible] = useState(true);
   let cards = [
     {
       cardTitle: "Carbon Footprint",
