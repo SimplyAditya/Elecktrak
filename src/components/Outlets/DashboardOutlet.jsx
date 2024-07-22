@@ -13,7 +13,7 @@ import {
 
 export const DashBoardOutlet = () => {
   const [chartsCollapsible, setChartsCollapsible] = useState(false);
-  const [cardsCollapsible, setCardsCollapsible] = useState(true);
+  const [cardsCollapsible, setCardsCollapsible] = useState(false);
   let cards = [
     {
       cardTitle: "Carbon Footprint",
@@ -242,7 +242,7 @@ export const DashBoardOutlet = () => {
             >
               <div className="flex justify-end w-11/12">
                 <FontAwesomeIcon
-                  className="px-2  pt-2 pb-4"
+                  className="px-2  pt-2 pb-2"
                   onClick={() => setCardsCollapsible(false)}
                   icon={faXmark}
                 />
