@@ -238,19 +238,20 @@ export const DashBoardOutlet = () => {
           {cardsCollapsible && (
             <div
               id="div2"
-              className="h-full w-full rounded-[20px] bg-white shadow-md drop-shadow-sm overflow-y-auto shadow-slate-300 text-dashboardBlue px-2 py-4 flex flex-col justify-start items-center"
+              className="h-full w-full rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-1 py-4 flex flex-col justify-start items-center gap-2"
             >
-              <div className="flex justify-end w-11/12">
+              <div className="flex justify-between w-11/12">
+                <div className="flex items-center text-xl font-bold">Cards</div>
                 <FontAwesomeIcon
                   className="px-2  pt-2 pb-2"
                   onClick={() => setCardsCollapsible(false)}
                   icon={faXmark}
                 />
               </div>
-              <div className="">
+              <div className=" w-11/12 h-full overflow-y-auto rounded-xl">
                 {cards.map((card) => {
                   return (
-                    <div className="w-full bg-dashboardBlue my-1 rounded-xl p-2 py-4 flex flex-col">
+                    <div className="w-full bg-dashboardBlue my-2 rounded-xl p-2 py-4 flex flex-col">
                       <div className="flex gap-3 items-center">
                         <select className="w-7/12 rounded-md">
                           <option>{card.cardTitle}</option>
