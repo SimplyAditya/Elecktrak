@@ -227,7 +227,7 @@ export const DashBoardOutlet = () => {
             <div
               id="div2"
               onClick={() => setCardsCollapsible(true)}
-              className="h-full w-fit rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-2 py-6 flex flex-col justify-start items-center outfit-font"
+              className="h-full w-fit rounded-[20px] bg-white shadow-md gap-4 drop-shadow-sm shadow-slate-300 text-dashboardBlue px-2 py-6 flex flex-col justify-start items-center outfit-font"
             >
               <div>
                 <FontAwesomeIcon icon={faCaretLeft} />

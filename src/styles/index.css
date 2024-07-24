@@ -8,8 +8,7 @@
 }
 .vertical-text {
   writing-mode: vertical-rl;
-  text-orientation: upright;
-  transform: rotate(0deg);
+  transform: rotate(180deg);
 }
 
 @keyframes progressBar {
