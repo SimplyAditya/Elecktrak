@@ -1,6 +1,6 @@
-import { faCaretLeft, faCaretRight, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {faCaretRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -46,12 +46,14 @@ export const DeviceTwinningOutlet = () => {
           <div className=" w-full h-full overflow-y-auto rounded-xl"></div>
         </div>
       )}
-      <div className="w-full h-full overflow-y-auto rounded-2xl bg-white flex flex-grow p-2 pt-2 text-5xl outfit-font justify-center items-center text-dashboardBlue shadow-md drop-shadow-sm shadow-slate-300 me-2">
+      <div className="w-full h-full overflow-y-auto rounded-2xl bg-white flex flex-grow p-4 pt-2 text-5xl outfit-font justify-center items-center text-dashboardBlue shadow-md drop-shadow-sm shadow-slate-300 me-3">
           Device Twinning
       </div>
 
       </div>
     </div>
+
+
 
     </div>
   );
