@@ -1,11 +1,17 @@
 import { faCaretLeft, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const FloorOutlet = () => {
-  const [sideCollapsible, setsideCollapsible] = useState(false);
+  const [sideCollapsible, setsideCollapsible] = useState(
+    JSON.parse(localStorage.getItem("floor-sideState")) || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("floor-sideState", JSON.stringify(sideCollapsible));
+  }, [sideCollapsible]);
 
   return (
     <div className="w-full h-full overflow-y-auto rounded-2xl bg-backg flex flex-wrap p-4 pt-2 justify-end items-start text-xl outfit-font text-dashboardBlue">
@@ -24,22 +30,20 @@ export const FloorOutlet = () => {
       )}
 
       {sideCollapsible && (
-        <div
-        className="h-full w-3/12 rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-1 py-4 flex flex-col justify-start items-center gap-2"
-      >
-        <div className="flex justify-between w-11/12">
-          <div className="flex items-center text-xl font-bold">Appliances</div>
-          <FontAwesomeIcon
-            className="px-2  pt-2 pb-2"
-            onClick={() => setsideCollapsible(false)}
-            icon={faXmark}
-          />
+        <div className="h-full w-3/12 rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-1 py-4 flex flex-col justify-start items-center gap-2">
+          <div className="flex justify-between w-11/12">
+            <div className="flex items-center text-xl font-bold">
+              Appliances
+            </div>
+            <FontAwesomeIcon
+              className="px-2  pt-2 pb-2"
+              onClick={() => setsideCollapsible(false)}
+              icon={faXmark}
+            />
+          </div>
+          <div className=" w-11/12 h-full overflow-y-auto rounded-xl"></div>
         </div>
-        <div className=" w-11/12 h-full overflow-y-auto rounded-xl">
-          
-        </div>
-      </div>
-    )}
+      )}
     </div>
   );
 };

@@ -20,6 +20,15 @@
   }
 }
 
-.progress-bar {
-  animation: progressBar 3s linear forwards;
+@keyframes showbox {
+  from {
+    max-width: 50%;
+  }
+  to {
+    max-width: 100%;
+  }
+}
+
+.show-box {
+  animation: showbox 1s linear forwards;
 }

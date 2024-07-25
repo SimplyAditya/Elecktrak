@@ -1,19 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaretDown,
-  faBatteryQuarter,
-  faCoins,
-  faSun,
-  faLaptop,
   faPlus,
   faXmark,
   faCaretLeft,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { charts } from "../staticData/chartsData";
+
 export const DashBoardOutlet = () => {
-  const [chartsCollapsible, setChartsCollapsible] = useState(false);
-  const [cardsCollapsible, setCardsCollapsible] = useState(false);
+  const [chartsCollapsible, setChartsCollapsible] = useState(
+    JSON.parse(localStorage.getItem("chartsState")) || false
+  );
+  const [cardsCollapsible, setCardsCollapsible] = useState(
+    JSON.parse(localStorage.getItem("cardsState")) || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("chartsState", JSON.stringify(chartsCollapsible));
+  }, [chartsCollapsible]);
+
+  useEffect(() => {
+    localStorage.setItem("cardsState", JSON.stringify(cardsCollapsible));
+  }, [cardsCollapsible]);
+
   let cards = [
     {
       cardTitle: "Carbon Footprint",
@@ -37,112 +48,7 @@ export const DashBoardOutlet = () => {
       stats: "12% increase from last year",
     },
   ];
-  const charts = [
-    {
-      title: "Consumption",
-      icon: <FontAwesomeIcon icon={faBatteryQuarter} />,
-      charts: [
-        {
-          title: "Electricity",
-          checked: false,
-        },
-        {
-          title: "Water",
-          checked: false,
-        },
-        {
-          title: "Gas",
-          checked: false,
-        },
-        {
-          title: "Power",
-          checked: false,
-        },
-        {
-          title: "HVAC",
-          checked: false,
-        },
-      ],
-    },
-    {
-      title: "Cost",
-      icon: <FontAwesomeIcon icon={faCoins} />,
-      charts: [
-        {
-          title: "Electricity",
-          checked: false,
-        },
-        {
-          title: "Water",
-          checked: false,
-        },
-        {
-          title: "Gas",
-          checked: false,
-        },
-        {
-          title: "Power",
-          checked: false,
-        },
-        {
-          title: "HVAC",
-          checked: false,
-        },
-      ],
-    },
-    {
-      title: "Enviornmental Impact",
-      icon: <FontAwesomeIcon icon={faSun} />,
-      charts: [
-        {
-          title: "Solar Energy",
-          checked: false,
-        },
-        {
-          title: "Energy Efficiency",
-          checked: false,
-        },
-        {
-          title: "Carbon Footprint",
-          checked: false,
-        },
-        {
-          title: "Air Quality",
-          checked: false,
-        },
-        {
-          title: "Power Cuts",
-          checked: false,
-        },
-      ],
-    },
-    {
-      title: "Prediction",
-      icon: <FontAwesomeIcon icon={faLaptop} />,
-      charts: [
-        {
-          title: "Elec. Consumption",
-          checked: false,
-        },
-        {
-          title: "Water Consumption",
-          checked: false,
-        },
-        {
-          title: "Air Quality Index",
-          checked: false,
-        },
-        {
-          title: "Carbon Emission",
-          checked: false,
-        },
-        {
-          title: "Production",
-          checked: false,
-        },
-      ],
-    },
-  ];
+
   const [chartsState, setChartsState] = useState(charts);
 
   const changeCharts = (chartIndex, categoryIndex) => {
