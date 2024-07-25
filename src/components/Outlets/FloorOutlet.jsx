@@ -74,7 +74,7 @@ export const FloorOutlet = () => {
             <div>
               <FontAwesomeIcon className="" icon={faCaretLeft} />
             </div>
-            <h1 className=" text-xl font-bold vertical-text"> Appliances </h1>
+            <h1 className=" text-xl font-bold vertical-text"> Appliance </h1>
           </div>
         </div>
       )}
