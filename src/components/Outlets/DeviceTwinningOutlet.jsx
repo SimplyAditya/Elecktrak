@@ -25,7 +25,7 @@ export const DeviceTwinningOutlet = () => {
           className="px-2  pt-2 pb-2"
            icon={faCaretRight} />
           <h1 className="font-bold text-xl vertical-text">
-            Devices
+            Device Twin
           </h1>
           
           </div>
@@ -36,7 +36,7 @@ export const DeviceTwinningOutlet = () => {
         <div className="h-full w-3/12 rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-1 py-4 flex flex-col justify-start items-stretch gap-2">
           <div className="flex justify-between">
             <div className="flex items-center text-xl font-bold ms-2">
-              Devices
+              Devices Twin
             </div>
             <FontAwesomeIcon
               className="px-2 pt-2 pb-2 me-2"
