@@ -9,11 +9,16 @@ export const FloorOutlet = () => {
     JSON.parse(localStorage.getItem("floor-sideState")) || false,
   );
 
-  const [floorCollapsible, setFloorCollapsible] = useState(false);
+  const [floorCollapsible, setFloorCollapsible] = useState(JSON.parse(localStorage.getItem("floor-leftState")) || false);
 
   useEffect(() => {
     localStorage.setItem("floor-sideState", JSON.stringify(sideCollapsible));
   }, [sideCollapsible]);
+
+
+  useEffect(() => {
+    localStorage.setItem("floor-leftState", JSON.stringify(floorCollapsible));
+  }, [floorCollapsible]);
 
   return (
     <div className="w-full h-full overflow-y-auto rounded-2xl bg-backg flex flex-auto p-4 pt-2 justify-between items-start text-xl outfit-font text-dashboardBlue">

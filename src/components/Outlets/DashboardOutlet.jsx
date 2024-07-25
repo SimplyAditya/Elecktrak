@@ -5,6 +5,7 @@ import {
   faPlus,
   faXmark,
   faCaretLeft,
+  faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { charts } from "../staticData/chartsData";
@@ -27,29 +28,86 @@ export const DashBoardOutlet = () => {
 
   let cards = [
     {
+      id: 1,
       cardTitle: "Carbon Footprint",
-      range: ["overall", "Last 24 Hours", "Last Month", "Last Year", "Average"],
-      Data: "150 metric Tons",
+      stats: {
+        overall: {
+          val: "1500 metric Tons",
+          stats: "12% increase from last year",
+        },
+        "Last 24 Hours": {
+          val: "10 metric Tons",
+          stats: "9% less than previous day",
+        },
+        "Last Month": {
+          val: "420 metric Tons",
+          stats: "12% less than previous Month",
+        },
+      },
+      range: ["overall", "Last 24 Hours", "Last Month"],
       metrics: "CO2/ year",
-      stats: "12% increase from last year",
     },
     {
-      cardTitle: "Carbon Footprint",
-      range: ["overall", "Last 24 Hours", "Last Month", "Last Year", "Average"],
-      Data: "150 metric Tons",
-      metrics: "CO2/ year",
-      stats: "12% increase from last year",
+      id: 2,
+      cardTitle: "Electricity Consumption",
+      stats: {
+        overall: {
+          val: "24.6 kWh",
+          stats: "14% increase from last year",
+        },
+        "Last 24 Hours": {
+          val: "1 kWh",
+          stats: "19% less than previous day",
+        },
+        "Last Month": {
+          val: "33 kWh",
+          stats: "11% less than previous Month",
+        },
+      },
+      range: ["overall", "Last 24 Hours", "Last Month"],
+      metrics: "kWh",
     },
     {
-      cardTitle: "Carbon Footprint",
-      range: ["overall", "Last 24 Hours", "Last Month", "Last Year", "Average"],
-      Data: "150 metric Tons",
-      metrics: "CO2/ year",
-      stats: "12% increase from last year",
+      id: 3,
+      cardTitle: "Electricity Cost",
+      stats: {
+        overall: {
+          val: "7,00,000 INR",
+          stats: "8% increase from last year",
+        },
+        "Last 24 Hours": {
+          val: "15,000 INR",
+          stats: "2% less than previous day",
+        },
+        "Last Month": {
+          val: "4,70,000 INR",
+          stats: "12% less than previous Month",
+        },
+      },
+      range: ["overall", "Last 24 Hours", "Last Month"],
+      metrics: "INR",
     },
   ];
 
   const [chartsState, setChartsState] = useState(charts);
+  const [cardsState, setCardsState] = useState(cards);
+  const [selectedTitles, setSelectedTitles] = useState(
+    cardsState.reduce(
+      (acc, card) => ({ ...acc, [card.id]: card.cardTitle }),
+      {}
+    )
+  );
+  const [selectedRanges, setSelectedRanges] = useState(
+    cardsState.reduce((acc, card) => ({ ...acc, [card.id]: card.range[0] }), {})
+  );
+
+  const handleTitleChange = (id, newTitle) => {
+    setSelectedTitles((prev) => ({ ...prev, [id]: newTitle }));
+  };
+
+  const handleRangeChange = (id, newRange) => {
+    setSelectedRanges((prev) => ({ ...prev, [id]: newRange }));
+  };
 
   const changeCharts = (chartIndex, categoryIndex) => {
     setChartsState((prevState) =>
@@ -67,9 +125,24 @@ export const DashBoardOutlet = () => {
       )
     );
   };
-  // useEffect(()=>{
-  //   localStorage.setItem("charts",JSON.stringify(charts))
-  // },[charts])
+
+  const addCard = (cardId) => {
+    const card = cards.find((card) => card.id === cardId);
+    const newCard = {
+      ...card,
+      id: `${cardsState.length * Math.random()} + 1`,
+      disabled: true,
+    };
+    setCardsState([...cardsState, newCard]);
+    setSelectedTitles((prev) => ({ ...prev, [newCard.id]: newCard.cardTitle }));
+    setSelectedRanges((prev) => ({ ...prev, [newCard.id]: newCard.range[0] }));
+  };
+
+  const deleteCard = (cardId) => {
+    const newCards = cardsState.filter((card) => card.id !== cardId);
+
+    setCardsState(newCards);
+  };
 
   return (
     <>
@@ -99,18 +172,28 @@ export const DashBoardOutlet = () => {
               </div>
               <div className="flex justify-between items-center w-full">
                 {chartsState.map((eachChart, chartIndex) => (
-                  <div className="flex flex-col items-start w-2/6 ps-2 py-2">
-                    <div className="flex items-center text-md">
+                  <div
+                    key={`chart-${chartIndex}`}
+                    className="flex flex-col items-start w-2/6 ps-2 py-2"
+                  >
+                    <div
+                      key={`chart-title-${chartIndex}`}
+                      className="flex items-center text-md"
+                    >
                       {eachChart.icon}
                       &nbsp; {eachChart.title}
                     </div>
                     <div className="border-2 w-full ps-2 rounded-lg">
                       {eachChart.charts.map((category, index) => (
-                        <div className="flex gap-5 items-center justify-start pt-2">
+                        <div
+                          id={`category-${chartIndex}-${index}`}
+                          className="flex gap-5 items-center justify-start pt-2 check"
+                        >
                           <input
                             checked={category.checked}
                             onChange={() => changeCharts(chartIndex, index)}
                             type="checkbox"
+                            className="rounded"
                           />
                           {category.title}
                         </div>
@@ -149,36 +232,80 @@ export const DashBoardOutlet = () => {
               <div className="flex justify-between w-11/12">
                 <div className="flex items-center text-xl font-bold">Cards</div>
                 <FontAwesomeIcon
-                  className="px-2  pt-2 pb-2"
+                  className="px-2 pt-2 pb-2"
                   onClick={() => setCardsCollapsible(false)}
                   icon={faXmark}
                 />
               </div>
-              <div className=" w-11/12 h-full overflow-y-auto rounded-xl">
-                {cards.map((card) => {
+              <div className="w-11/12 h-full overflow-y-auto rounded-xl">
+                {cardsState.map((card) => {
+                  const currentCard = cardsState.find(
+                    (c) => c.cardTitle === selectedTitles[card.id]
+                  );
+                  const currentStats =
+                    currentCard.stats[selectedRanges[card.id]];
+
                   return (
-                    <div className="w-full bg-dashboardBlue my-2 rounded-xl p-2 py-4 flex flex-col">
+                    <div
+                      key={card.id}
+                      className="w-full bg-dashboardBlue my-2 rounded-xl p-2 py-4 flex flex-col"
+                    >
                       <div className="flex gap-3 items-center">
-                        <select className="w-7/12 rounded-md">
-                          <option>{card.cardTitle}</option>
+                        <select
+                          value={selectedTitles[card.id]}
+                          onChange={(e) =>
+                            handleTitleChange(card.id, e.target.value)
+                          }
+                          className="w-7/12 rounded-md"
+                        >
+                          {cards.map((eachCard) => (
+                            <option
+                              key={eachCard.id}
+                              value={eachCard.cardTitle}
+                            >
+                              {eachCard.cardTitle}
+                            </option>
+                          ))}
                         </select>
-                        <select className="rounded-md w-1/3">
-                          {card.range.map((range) => {
-                            return <option>{range}</option>;
-                          })}
+                        <select
+                          value={selectedRanges[card.id]}
+                          onChange={(e) =>
+                            handleRangeChange(card.id, e.target.value)
+                          }
+                          className="rounded-md w-1/3"
+                        >
+                          {currentCard.range.map((range) => (
+                            <option key={range} value={range}>
+                              {range}
+                            </option>
+                          ))}
                         </select>
-                        <button className="text-white">
+                        <button
+                          onClick={() => addCard(card.id)}
+                          className="text-white"
+                        >
                           <FontAwesomeIcon icon={faPlus} />
                         </button>
                       </div>
-                      <div className="text-white text-2xl pt-2 ps-2">
-                        {card.Data}
+                      <div className="text-white text-2xl pt-2 ps-2 flex justify-between w-full">
+                        {currentStats.val}
+                        {card.disabled && (
+                          <button
+                            onClick={() => deleteCard(card.id)}
+                            className="text-white"
+                          >
+                            <FontAwesomeIcon
+                              className="text-base"
+                              icon={faTrash}
+                            />
+                          </button>
+                        )}
                       </div>
                       <div className="text-white text-xl ps-2">
-                        {card.metrics}
+                        {currentCard.metrics}
                       </div>
                       <div className="text-white text-sm pt-2 ps-2">
-                        {card.stats}
+                        {currentStats.stats}
                       </div>
                     </div>
                   );

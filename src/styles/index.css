@@ -32,3 +32,9 @@
 .show-box {
   animation: showbox 1s linear forwards;
 }
+
+.check:checked{
+  background-image: none !important;
+  background-color: #21ADB6 !important;
+
+}

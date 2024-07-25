@@ -1,14 +1,15 @@
-import { faCaretLeft, faCaretRight, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faCaretRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const DeviceTwinningOutlet = () => {
 
-  const [sideTwinCollapsible, setSideTwinCollapsible] = useState(false);
+  const [sideTwinCollapsible, setSideTwinCollapsible] = useState(JSON.parse(localStorage.getItem("twin-sideState")) || false);
 
-
+  useEffect(()=>{
+    localStorage.setItem("twin-sideState",JSON.stringify(sideTwinCollapsible));
+  },[sideTwinCollapsible])
   return (
     <div className="w-full h-full overflow-y-auto rounded-2xl bg-backg flex flex-auto p-4 pt-2 justify-between items-start text-xl outfit-font text-dashboardBlue">
 
@@ -24,7 +25,7 @@ export const DeviceTwinningOutlet = () => {
           className="px-2  pt-2 pb-2"
            icon={faCaretRight} />
           <h1 className="font-bold text-xl vertical-text">
-            Twin
+            Devices
           </h1>
           
           </div>
@@ -35,7 +36,7 @@ export const DeviceTwinningOutlet = () => {
         <div className="h-full w-3/12 rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-1 py-4 flex flex-col justify-start items-stretch gap-2">
           <div className="flex justify-between">
             <div className="flex items-center text-xl font-bold ms-2">
-              Twin
+              Devices
             </div>
             <FontAwesomeIcon
               className="px-2 pt-2 pb-2 me-2"
