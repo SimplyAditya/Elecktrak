@@ -77,7 +77,7 @@ export const NavbarSideLong = ({ changeOnHover,logoutBox }) => {
               </button>
             </div>
           </div>
-          <div className="bg-white text-dashboardBlue p-4 px-5 text-3xl rounded-2xl flex items-center hover:bg-gray-300">
+          <div className="bg-white text-dashboardBlue p-4 px-5 text-3xl rounded-2xl flex items-center hover:bg-gray-300 ">
             <FontAwesomeIcon icon={faEnvelope} />
             &nbsp; <h1 className="font-semibold">Contact Us</h1>
           </div>
