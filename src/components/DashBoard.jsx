@@ -7,7 +7,7 @@ import LogOutBox from "./LogOutBox";
 
 export const Dashboard = () => {
   const [navbar, setNavbar] = useState(false);
-  const [showLogout,setShowLogout]=useState(false);
+  const [showLogout, setShowLogout] = useState(false);
 
   const handleMouseEnter = () => {
     if (!navbar) {
@@ -22,8 +22,13 @@ export const Dashboard = () => {
   return (
     <>
       <div className="w-full h-full flex bg-dashboardBlue">
-        {showLogout && <LogOutBox handleClick={setShowLogout}/>}
-        {navbar && <NavbarSideLong changeOnHover={handleMouseExit} logoutBox={setShowLogout}/>}
+        {showLogout && <LogOutBox handleClick={setShowLogout} />}
+        {navbar && (
+          <NavbarSideLong
+            changeOnHover={handleMouseExit}
+            logoutBox={setShowLogout}
+          />
+        )}
         <NavbarSide changeOnHover={handleMouseEnter} />
         <div className="h-screen flex-grow flex flex-col">
           <NavbarTop />

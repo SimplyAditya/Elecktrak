@@ -280,15 +280,14 @@ export const DashBoardOutlet = () => {
                             </option>
                           ))}
                         </select>
-                        <button
-                          onClick={() => addCard(card.id)}
-                          className="text-white"
-                        >
-                          <FontAwesomeIcon icon={faPlus} />
-                        </button>
-                      </div>
-                      <div className="text-white text-2xl pt-2 ps-2 flex justify-between w-full">
-                        {currentStats.val}
+                        {card.disabled || (
+                          <button
+                            onClick={() => addCard(card.id)}
+                            className="text-white"
+                          >
+                            <FontAwesomeIcon icon={faPlus} />
+                          </button>
+                        )}
                         {card.disabled && (
                           <button
                             onClick={() => deleteCard(card.id)}
@@ -300,6 +299,9 @@ export const DashBoardOutlet = () => {
                             />
                           </button>
                         )}
+                      </div>
+                      <div className="text-white text-2xl pt-2 ps-2 flex justify-between w-full">
+                        {currentStats.val}
                       </div>
                       <div className="text-white text-xl ps-2">
                         {currentCard.metrics}
