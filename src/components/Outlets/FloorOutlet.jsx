@@ -72,7 +72,7 @@ export const FloorOutlet = () => {
         >
           <div className="flex flex-col items-center gap-4">
             <div>
-              <FontAwesomeIcon className="" icon={faCaretLeft} />
+              <FontAwesomeIcon className="" icon={faCaretRight} />
             </div>
             <h1 className=" text-xl font-bold vertical-text"> Appliance </h1>
           </div>
