@@ -10,7 +10,7 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
-  const [toggleAlert,setToggleAlert]=useState(false);
+  const [toggleAlert, setToggleAlert] = useState(false);
 
   const GoToHome = (event) => {
     event.preventDefault();
@@ -19,10 +19,9 @@ const AdminLogin = () => {
       return;
     }
     setError(false);
-    if(email!=="aabcd" || password!=="abcd"){
+    if (email !== "aabcd" || password !== "abcd") {
       setToggleAlert(true);
       return;
-
     }
     setToggleAlert(false);
     navigate("/home");
@@ -34,7 +33,9 @@ const AdminLogin = () => {
 
   return (
     <div>
-      {toggleAlert && (<Alert alert="Invalid Email or Password" toggle={setToggleAlert}/>)}
+      {toggleAlert && (
+        <Alert alert="Invalid Email or Password" toggle={setToggleAlert} />
+      )}
       <div className="min-h-screen flex flex-col lg:flex-row">
         <div
           className="h-1/2 lg:h-screen lg:w-4/6 flex items-center justify-start bg-black"

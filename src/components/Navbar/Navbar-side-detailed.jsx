@@ -12,14 +12,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-export const NavbarSideLong = ({ changeOnHover,logoutBox }) => {
+export const NavbarSideLong = ({ changeOnHover, logoutBox }) => {
   const naviagte = useNavigate();
   const redirect = (route) => {
     naviagte(`/${route}`);
   };
 
-
-  const buttonClassString="bg-dashboardBlue text-white text-2xl p-2 px-3 rounded-2xl flex items-center justify-start gap-2 hover:bg-blue-500";
+  const buttonClassString =
+    "bg-dashboardBlue text-white text-2xl p-2 px-3 rounded-2xl flex items-center justify-start gap-2 hover:bg-[#056E6E] hover:shadow-md hover:shadow-black";
   return (
     <>
       <div
