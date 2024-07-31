@@ -1,10 +1,8 @@
-import {
-  faCaretLeft,
-  faCaretRight,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// components/Outlets/FloorOutlet.js
+
 import React, { useEffect, useState } from "react";
+import { faCaretLeft, faCaretRight, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Appliance Lists
 const appliancesForFloors = {
@@ -16,7 +14,6 @@ const appliancesForFloors = {
   6: ["Dryer", "Humidifier", "Space Heater"]
 };
 
-<<<<<<< HEAD
 // General Appliance List
 const generalAppliances = [
   "Air Conditioner",
@@ -82,39 +79,20 @@ const FloorOutlet = () => {
   const [floorCollapsible, setFloorCollapsible] = useState(false);
   const [floorOpen, setFloorOpen] = useState(null); // Track the open floor
   const [showGeneralAppliances, setShowGeneralAppliances] = useState(true);
-=======
-export const FloorOutlet = () => {
-  const [sideCollapsible, setsideCollapsible] = useState(
-    JSON.parse(localStorage.getItem("floor-sideState")) || false
-  );
-
-  const [floorCollapsible, setFloorCollapsible] = useState(
-    JSON.parse(localStorage.getItem("floor-leftState")) || false
-  );
->>>>>>> 21438e0f53b269cf2469b25894f3a36b9aa47f34
 
   useEffect(() => {
     localStorage.setItem("floor-sideState", JSON.stringify(sideCollapsible));
   }, [sideCollapsible]);
 
-<<<<<<< HEAD
   const handleFloorToggle = (floor) => {
     setFloorOpen(floorOpen === floor ? null : floor); // Toggle floor
   };
-=======
-  useEffect(() => {
-    localStorage.setItem("floor-leftState", JSON.stringify(floorCollapsible));
-  }, [floorCollapsible]);
->>>>>>> 21438e0f53b269cf2469b25894f3a36b9aa47f34
 
   return (
     <div className="w-full h-full overflow-y-auto rounded-2xl bg-backg flex flex-auto p-4 pt-2 justify-between items-start text-xl outfit-font text-dashboardBlue">
       <div className="h-full w-full flex flex-row gap-2">
         <div className="w-full h-full flex flex-row gap-3">
-<<<<<<< HEAD
           {/* Buildings Section */}
-=======
->>>>>>> 21438e0f53b269cf2469b25894f3a36b9aa47f34
           {!floorCollapsible && (
             <div
               id="divvv"
@@ -123,11 +101,7 @@ export const FloorOutlet = () => {
             >
               <div>
                 <FontAwesomeIcon
-<<<<<<< HEAD
                   className="px-2 pt-2 pb-2"
-=======
-                  className="px-2  pt-2 pb-2"
->>>>>>> 21438e0f53b269cf2469b25894f3a36b9aa47f34
                   icon={faCaretRight}
                 />
                 <h1 className="font-bold text-xl vertical-text">Buildings</h1>
@@ -147,7 +121,6 @@ export const FloorOutlet = () => {
                   icon={faXmark}
                 />
               </div>
-<<<<<<< HEAD
               <div className="w-full h-full overflow-y-auto rounded-xl">
                 {[1, 2, 3, 4, 5, 6].map((floor) => (
                   <div key={floor} className="mb-4">
@@ -173,21 +146,13 @@ export const FloorOutlet = () => {
           )}
 
           {/* Floor Mapping Section */}
-=======
-              <div className=" w-full h-full overflow-y-auto rounded-xl"></div>
-            </div>
-          )}
->>>>>>> 21438e0f53b269cf2469b25894f3a36b9aa47f34
           <div className="w-full h-full overflow-y-auto rounded-2xl bg-white flex flex-grow p-4 pt-2 text-5xl outfit-font justify-center items-center text-dashboardBlue shadow-md drop-shadow-sm shadow-slate-300 me-3">
             Floor Mapping
           </div>
         </div>
       </div>
 
-<<<<<<< HEAD
       {/* Toggle between Appliance Lists */}
-=======
->>>>>>> 21438e0f53b269cf2469b25894f3a36b9aa47f34
       {!sideCollapsible && (
         <div
           onClick={() => setSideCollapsible(true)}
