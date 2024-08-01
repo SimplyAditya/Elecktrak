@@ -18,8 +18,8 @@ const DeviceTable = () => {
     ]
   
   return (
-    <div>
-      <table className="w-fit h-fit">
+    <div className="w-full">
+      <table className="w-full h-full">
         <thead className="h-fit w-1/12 bg-white border text sm table-fixed">
           <tr> <div className="text-sm">
             <th className="py-1 px-2 border ">Category</th>
