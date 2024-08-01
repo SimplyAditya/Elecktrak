@@ -29,6 +29,10 @@
   }
 }
 
+.progress-bar {
+  animation: progressBar 3s linear forwards;
+}
+
 .show-box {
   animation: showbox 1s linear forwards;
 }
