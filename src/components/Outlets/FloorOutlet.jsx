@@ -168,7 +168,7 @@ const FloorOutlet = () => {
       )}
 
       {sideCollapsible && (
-        <div className="h-full w-3/12 rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-1 py-4 flex flex-col justify-start items-center gap-2">
+        <div className="h-full w-3/12 rounded-[20px] bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-1 py-4 flex flex-col justify-start items-center gap-2 overflow-y-auto">
           <div className="w-11/12">
             <div className="flex justify-between items-center">
               <div className="text-xl font-bold">Appliances</div>
@@ -180,17 +180,17 @@ const FloorOutlet = () => {
             </div>
             <button
               onClick={() => setShowGeneralAppliances(true)}
-              className={`py-2 px-4 rounded-md ${showGeneralAppliances ? 'bg-gray-300' : 'bg-white'} text-dashboardBlue`}
+              className={`py-2 w-full px-4  flex justify-start items-start rounded-md ${showGeneralAppliances ? 'bg-gray-300' : 'bg-white'} text-dashboardBlue`}
             >
               General Appliances
             </button>
             <button
               onClick={() => setShowGeneralAppliances(false)}
-              className={`py-2 px-4 rounded-md ${!showGeneralAppliances ? 'bg-gray-300' : 'bg-white'} text-dashboardBlue`}
+              className={`py-2 w-full px-4 rounded-md ${!showGeneralAppliances ? 'bg-gray-300' : 'bg-white'} text-dashboardBlue`}
             >
               Floor Appliances
             </button>
-            <div className="mt-4">
+            <div className="mt-4 flex-grow overflow-y-auto">
               <ApplianceList appliances={showGeneralAppliances ? generalAppliances : appliancesForFloors[1]} /> {/* Default to first floor */}
             </div>
           </div>
