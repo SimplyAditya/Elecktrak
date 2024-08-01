@@ -7,7 +7,7 @@ import App from "./App";
 import { Dashboard } from "./components/DashBoard";
 import AdminLogin from "./components/AdminLogin";
 import { DashBoardOutlet } from "./components/Outlets/DashboardOutlet";
-import { FloorOutlet } from "./components/Outlets/FloorOutlet";
+import FloorOutlet from "./components/Outlets/FloorOutlet";
 import { RealTimeMonitorOutlet } from "./components/Outlets/RealTImeMonitorOutlet";
 import { DeviceTwinningOutlet } from "./components/Outlets/DeviceTwinningOutlet";
 
@@ -48,9 +48,11 @@ const router = createBrowserRouter([
   },
 ]);
 
+
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
     {/* <AdminLogin/> */}
   </React.StrictMode>
 );
+
