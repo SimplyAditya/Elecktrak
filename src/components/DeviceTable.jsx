@@ -17,8 +17,8 @@ const DeviceTable = () => {
   ];
 
   return (
-    <div>
-      <table className="w-fit h-fit border-collapse">
+    <div className="w-full">
+      <table className="w-full h-full border-collapse">
         <thead className="bg-white border text-sm table-fixed">
           <tr>
             <th className="py-1 px-2 border">Category</th>
