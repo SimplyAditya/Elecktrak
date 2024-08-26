@@ -6,12 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // Appliance Lists
 const appliancesForFloors = {
-  1: ["Air Conditioner", "Heater", "Refrigerator"],
-  2: ["Washing Machine", "Microwave", "Dishwasher"],
-  3: ["Oven", "Toaster", "Blender"],
-  4: ["Coffee Maker", "Electric Kettle", "Rice Cooker"],
-  5: ["Vacuum Cleaner", "Iron", "Fan"],
-  6: ["Dryer", "Humidifier", "Space Heater"]
+  1: ["Break room", "Cabin 10", "Workspace"],
+  2: ["Break room", "Cabin 10", "Workspace"],
+  3: ["Break room", "Cabin 10", "Workspace"],
+  4: ["Break room", "Cabin 10", "Workspace"],
+  5: ["Break room", "Cabin 10", "Workspace"],
+  6: ["Break room", "Cabin 10", "Workspace"]
 };
 
 // General Appliance List
