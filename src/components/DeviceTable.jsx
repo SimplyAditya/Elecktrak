@@ -18,17 +18,17 @@ const DeviceTable = () => {
 
   return (
     <div className="w-full">
-      <table className="w-full h-full border-collapse">
-        <thead className="bg-white border text-sm table-fixed">
+      <table className="w-full h-full border-collapse " style={{border:"2px solid"}}>
+        <thead className="bg-white border text-sm table-fixed" style={{border:"2px solid"}}>
           <tr>
-            <th className="py-1 px-2 border">Category</th>
-            <th className="py-1 px-2 border">Parameter</th>
-            <th className="py-1 px-2 border">Current</th>
-            <th className="py-1 px-2 border">Unit</th>
-            <th className="py-1 px-2 border">Timestamp</th>
-            <th className="py-1 px-2 border">Data Source</th>
-            <th className="py-1 px-2 border">Trend</th>
-            <th className="py-1 px-2 border">Status</th>
+            <th className="py-1 px-2 border border-b-2 border-y-0" style={{border:"2px solid"}}>Category</th>
+            <th className="py-1 px-2 border border-b-2 border-y-0" style={{border:"2px solid"}}>Parameter</th>
+            <th className="py-1 px-2 border" style={{border:"2px solid"}}>Current</th>
+            <th className="py-1 px-2 border" style={{border:"2px solid"}}>Unit</th>
+            <th className="py-1 px-2 border" style={{border:"2px solid"}}>Timestamp</th>
+            <th className="py-1 px-2 border" style={{border:"2px solid"}}>Data Source</th>
+            <th className="py-1 px-2 border" style={{border:"2px solid"}}>Trend</th>
+            <th className="py-1 px-2 border" style={{border:"2px solid"}}>Status</th>
           </tr>
         </thead>
         <tbody>
@@ -45,14 +45,14 @@ const DeviceTable = () => {
                     : "white", // Default color if category is neither
               }}
             >
-              <td className="py-1 px-2 border">{item.category}</td>
-              <td className="py-1 px-2 border">{item.parameter}</td>
-              <td className="py-1 px-2 border"></td>
-              <td className="py-1 px-2 border"></td>
-              <td className="py-1 px-2 border"></td>
-              <td className="py-1 px-2 border"></td>
-              <td className="py-1 px-2 border"></td>
-              <td className="py-1 px-2 border"></td>
+              <td className="py-2 px-2 border" style={{border:"2px solid"}}>{item.category}</td>
+              <td className="py-1 px-2 border border-b-2 border-y-0" style={{border:"2px solid"}}>{item.parameter}</td>
+              <td className="py-1 px-2 border border-b-2 border-y-0" style={{border:"2px solid"}}></td>
+              <td className="py-1 px-2 border border-b-2 border-y-0" style={{border:"2px solid"}}></td>
+              <td className="py-1 px-2 border border-x-2 border-y-0" style={{border:"2px solid"}}></td>
+              <td className="py-1 px-2 border border-x-2 border-y-0" style={{border:"2px solid"}}></td>
+              <td className="py-1 px-2 border border-x-2 border-y-0" style={{border:"2px solid"}}></td>
+              <td className="py-1 px-2 border border-x-2 border-y-0" style={{border:"2px solid"}}></td>
             </tr>
           ))}
         </tbody>
