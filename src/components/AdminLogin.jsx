@@ -24,9 +24,9 @@ const AdminLogin = () => {
       return;
     }
     setToggleAlert(false);
+    localStorage.setItem("jwt","aabcd");
     navigate("/home");
   };
-
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };

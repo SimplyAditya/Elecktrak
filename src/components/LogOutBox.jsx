@@ -5,6 +5,11 @@ const LogOutBox = ({ handleClick }) => {
   const navigator = useNavigate();
   const ref = useRef(null);
 
+  const clearJWT=()=>{
+    localStorage.removeItem("jwt");
+    navigator("/")
+  }
+
   // useEffect(() => {
   //   const handleClickOutside = (event) => {
   //     if (ref.current || !ref.current.contains(event.target)) {
@@ -26,7 +31,7 @@ const LogOutBox = ({ handleClick }) => {
       <div className="z-50 w-fit bg-white rounded-lg text-black h-1/4 py-4 px-6 text-2xl outfit-font flex flex-col justify-between">
         <div>Are you sure you want to Log Out ?</div>
         <div className="flex w-full items-center justify-end gap-8">
-          <button onClick={() => navigator("/")}>Yes</button>
+          <button onClick={() => clearJWT()}>Yes</button>
           <button onClick={() => handleClick(false)}>No</button>
         </div>
       </div>
