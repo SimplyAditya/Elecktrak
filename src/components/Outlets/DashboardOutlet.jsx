@@ -7,6 +7,7 @@ import {
   faCaretLeft,
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
+import Chart from "../Chart.jsx";
 
 import { charts } from "../staticData/chartsData";
 
@@ -208,7 +209,7 @@ export const DashBoardOutlet = () => {
             id="div3"
             className={`rounded-[20px] mt-2 bg-white shadow-md drop-shadow-sm shadow-slate-300 text-dashboardBlue px-6 py-4 pb-2 flex justify-center items-center outfit-font text-5xl flex-grow`}
           >
-            Dashboard
+            <Chart/>
           </div>
         </div>
         <div className="w-fit h-full">
